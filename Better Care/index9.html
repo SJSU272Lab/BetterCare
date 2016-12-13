@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Defensive  Medicine</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/bc.png">
+		<meta name="description" content="Inspiration for Article Intro Effects" />
+		<meta name="keywords" content="title, header, effect, scroll, inspiration, medium, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize1.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo1.css" />
+		<link rel="stylesheet" type="text/css" href="css/component1.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+
+	<body class="demo-7">
+		<div id="container" class="container intro-effect-jam3">
+
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="index8.html"><span></span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-next" href="index10.html"><span>Next</span></a></span>
+			</div>
+
+			<header class="header">
+				<div class="bg-img"><img src="images/background5.jpg" alt="Background Image" /></div>
+				<div class="title">
+
+					<h1>Defensive  Medicine</h1>
+					<p class="subline">Effects of increasing medical costs explained.</p>
+
+				</div>
+			</header>
+			<button class="trigger" data-info="Click to read more"><span>Trigger</span></button>
+
+
+			<article class="content">
+				<div>
+					<p>Yet another big driver of the higher U.S. health insurance bill is the practice of defensive medicine. Doctors are afraid that they will get sued, so they order multiple tests even when they are certain they know what the diagnosis is. A Gallup survey estimated that $650 billion annually could be attributed to defensive medicine. Everyone pays the bill on this with higher insurance premiums, co-pays and out-of-pocket costs, as well as taxes that go toward paying for governmental healthcare programs.</p>
+					<div id="container1" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+					<p>Nearly three-quarters of physicians report practicing defensive medicine, which is broadly defined as the ordering of tests, procedures, physician consultations and other medical services solely to reduce risk of malpractice claims.</p>
+					<p>The threat of malpractice is a very salient risk for most practicing physicians, particularly in high-risk specialties, If physicians perceive that higher spending can protect them from malpractice claims, then they are likely to practice defensively even if they feel that the additional spending is unnecessary or offers no clinical benefits to patients.</p>
+
+					<div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+				</div>
+			</article>
+
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script>
+			(function() {
+
+				// detect if IE : from http://stackoverflow.com/a/16657946
+				var ie = (function(){
+					var undef,rv = -1; // Return value assumes failure.
+					var ua = window.navigator.userAgent;
+					var msie = ua.indexOf('MSIE ');
+					var trident = ua.indexOf('Trident/');
+
+					if (msie > 0) {
+						// IE 10 or older => return version number
+						rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+					} else if (trident > 0) {
+						// IE 11 (or newer) => return version number
+						var rvNum = ua.indexOf('rv:');
+						rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+					}
+
+					return ((rv > -1) ? rv : undef);
+				}());
+
+
+				// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+				// left: 37, up: 38, right: 39, down: 40,
+				// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+				var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+				function preventDefault(e) {
+					e = e || window.event;
+					if (e.preventDefault)
+					e.preventDefault();
+					e.returnValue = false;
+				}
+
+				function keydown(e) {
+					for (var i = keys.length; i--;) {
+						if (e.keyCode === keys[i]) {
+							preventDefault(e);
+							return;
+						}
+					}
+				}
+
+				function touchmove(e) {
+					preventDefault(e);
+				}
+
+				function wheel(e) {
+					// for IE
+					//if( ie ) {
+						//preventDefault(e);
+					//}
+				}
+
+				function disable_scroll() {
+					window.onmousewheel = document.onmousewheel = wheel;
+					document.onkeydown = keydown;
+					document.body.ontouchmove = touchmove;
+				}
+
+				function enable_scroll() {
+					window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+				}
+
+				var docElem = window.document.documentElement,
+					scrollVal,
+					isRevealed,
+					noscroll,
+					isAnimating,
+					container = document.getElementById( 'container' ),
+					trigger = container.querySelector( 'button.trigger' );
+
+				function scrollY() {
+					return window.pageYOffset || docElem.scrollTop;
+				}
+
+				function scrollPage() {
+					scrollVal = scrollY();
+
+					if( noscroll && !ie ) {
+						if( scrollVal < 0 ) return false;
+						// keep it that way
+						window.scrollTo( 0, 0 );
+					}
+
+					if( classie.has( container, 'notrans' ) ) {
+						classie.remove( container, 'notrans' );
+						return false;
+					}
+
+					if( isAnimating ) {
+						return false;
+					}
+
+					if( scrollVal <= 0 && isRevealed ) {
+						toggle(0);
+					}
+					else if( scrollVal > 0 && !isRevealed ){
+						toggle(1);
+					}
+				}
+
+				function toggle( reveal ) {
+					isAnimating = true;
+
+					if( reveal ) {
+						classie.add( container, 'modify' );
+					}
+					else {
+						noscroll = true;
+						disable_scroll();
+						classie.remove( container, 'modify' );
+					}
+
+					// simulating the end of the transition:
+					setTimeout( function() {
+						isRevealed = !isRevealed;
+						isAnimating = false;
+						if( reveal ) {
+							noscroll = false;
+							enable_scroll();
+						}
+					}, 600 );
+				}
+
+				// refreshing the page...
+				var pageScroll = scrollY();
+				noscroll = pageScroll === 0;
+
+				disable_scroll();
+
+				if( pageScroll ) {
+					isRevealed = true;
+					classie.add( container, 'notrans' );
+					classie.add( container, 'modify' );
+				}
+
+				window.addEventListener( 'scroll', scrollPage );
+				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+			})();
+		</script>
+
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+		<script>
+		$(function () {
+		    Highcharts.chart('container1', {
+		        chart: {
+		            type: 'bar'
+		        },
+		        title: {
+		            text: 'Percent of Physicians Sued'
+		        },
+		        xAxis: {
+		            categories: ['Obs/Gyn', 'Surgery', 'Orthopedics', 'Radiology', 'Anesthesiology','IM/FM', 'Oncology'],
+		            title: {
+		                text: null
+		            }
+		        },
+		        yAxis: {
+		            min: 0,
+		            title: {
+		                text: 'Percentage',
+		                align: 'high'
+		            },
+		            labels: {
+		                overflow: 'justify'
+		            }
+		        },
+		        tooltip: {
+		            valueSuffix: '%'
+		        },
+		        plotOptions: {
+		            bar: {
+		                dataLabels: {
+		                    enabled: true
+		                }
+		            }
+		        },
+
+		        credits: {
+		            enabled: false
+		        },
+		        series: [{
+		            name: 'Percentage Sued',
+		            data: [85, 83, 79, 72, 58,46,34]
+		        }]
+		    });
+		});
+
+		</script>
+
+		<script>
+		$(function () {
+    Highcharts.chart('container2', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'How likely a Doctor is to be sued'
+        },
+        subtitle: {
+            text: 'Source: medscape.com'
+        },
+        xAxis: {
+            categories: [
+                '< 34',
+                '35 - 39',
+                '40 - 44',
+                '45 - 49',
+                '50 - 54',
+                '55 - 59',
+                '60 - 64',
+                '65 - 69',
+                '> 70',
+
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Percentage'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key} years</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Only person named',
+            data: [1, 3, 5,11,11,15,19,24,25]
+
+        },  {
+            name: 'One of the many parties named',
+            data: [13, 21, 39,46,53,60,63,55,57]
+
+        }]
+    });
+});
+		</script>
+	</body>
+</html>

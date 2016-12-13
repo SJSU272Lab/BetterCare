@@ -5,6 +5,16 @@ html.js,
 }
 
 
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
 .buttons {
   outline: none;
   height: 40px;
@@ -23,10 +33,10 @@ html.js,
   transition: all 0.25s ease;
 }
 
-.buttons:hover 
+.buttons:hover
 {
- border: 2px solid #5c5edc;
- color: #5c5edc;
+ border: 2px solid #1abc9c;
+ color: #1abc9c;
 }
 
 .buttons:active {
@@ -217,9 +227,57 @@ html.js,
 .poster {
 	position: absolute;
 	bottom: 15vh;
-	left: 50%;
+	left: 48%;
 	max-width: 100%;
 	max-height: 60%;
+}
+
+.poster10 {
+	position: absolute;
+	bottom: 15vh;
+	left: 55%;
+	max-width: 80%;
+	max-height: 60%;
+}
+
+.poster3 {
+	position: absolute;
+	bottom: 18vh;
+	left: 60%;
+	max-width: 100%;
+	max-height: 50%;
+}
+
+.poster4 {
+	position: absolute;
+	bottom: 25vh;
+	left: 60%;
+	max-width: 100%;
+	max-height: 50%;
+}
+
+.left {
+	position: absolute;
+	bottom: 10vh;
+	left: 90%;
+	max-width: 100%;
+	max-height: 50%;
+}
+
+
+.poster1 {
+	position: absolute;
+	left: 85%;
+	max-width: 100%;
+	max-height: 60%;
+}
+
+.poster2 {
+	position: absolute;
+	left: 65%;
+	max-width: 100%;
+	max-height: 50%;
+	bottom: 30%;
 }
 
 /* Menu button */

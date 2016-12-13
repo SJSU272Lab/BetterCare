@@ -1,0 +1,131 @@
+/** A mixin to create retina sprites with hover & active states  You have to register a pair of sprites using `{@link #retina-sprite-add}` and then you can use this mixin:  @include retina-sprite-add(icons, "icons/*.png", "icons-retina/*.png");  .my-icon { @include retina-sprite(icon-name, icons); }  @param {String} $name @param {String} [$sprite-name] @param {Boolean} [$hover=false] @param {Boolean} [$active=false] */
+/** @param {String} $name @param {String} $path @param {String} $path2x */
+/** Mixin for retina backgrounds where you can't use a sprite.  - Make sure you have a file@2x.png file additional to your file.png. - The mixin prepends $imgPath, which should be set globally at some point. Default is: "img/"  Examples: li { @include retina-background(arrow, no-repeat 10px 15px) }  a.external { @include retina-background(external, no-repeat right) }  @param {String} $file Path to file relative to images folder defined in config.rb and without a file extension @param {Object} [$attr] Additional attributes like position or repetition. E.g. `no-repeat top right` @param {String} [$type] The file type. */
+/* =Grid
+-------------------------------------------------------------- */
+.grid-container { margin-left: 20px; margin-right: 20px; }
+
+.col-md-1 { width: 7.14286%; }
+
+.col-md-2 { width: 14.28571%; }
+
+.col-md-3 { width: 21.42857%; }
+
+.col-md-4 { width: 28.57143%; }
+
+.col-md-5 { width: 35.71429%; }
+
+.col-md-6 { width: 42.85714%; }
+
+.col-md-7 { width: 50%; }
+
+.col-md-8 { width: 57.14286%; }
+
+.col-md-9 { width: 64.28571%; }
+
+.col-md-10 { width: 71.42857%; }
+
+.col-md-11 { width: 78.57143%; }
+
+.col-md-12 { width: 85.71429%; }
+
+.col-md-13 { width: 92.85714%; }
+
+.col-md-14 { width: 100%; }
+
+.col-md-offset-1 { margin-left: 7.14286%; }
+
+.col-md-offset-2 { margin-left: 14.28571%; }
+
+.col-md-offset-3 { margin-left: 21.42857%; }
+
+.col-md-offset-4 { margin-left: 28.57143%; }
+
+.col-md-offset-5 { margin-left: 35.71429%; }
+
+.col-md-offset-6 { margin-left: 42.85714%; }
+
+.col-md-offset-7 { margin-left: 50%; }
+
+.col-md-offset-8 { margin-left: 57.14286%; }
+
+.col-md-offset-9 { margin-left: 64.28571%; }
+
+.col-md-offset-10 { margin-left: 71.42857%; }
+
+.col-md-offset-11 { margin-left: 78.57143%; }
+
+.col-md-offset-12 { margin-left: 85.71429%; }
+
+.col-md-offset-13 { margin-left: 92.85714%; }
+
+.col-md-offset-14 { margin-left: 100%; }
+
+/* =Header
+-------------------------------------------------------------- */
+#branding .grid .site-identifier { position: relative; top: 0; padding-right: 0; }
+#branding .grid .navigator-primary { margin-top: 20px; float: none; width: 100%; }
+
+/* =Shared Elements
+-------------------------------------------------------------- */
+.inline-module { padding: 44px 60px; margin-left: -60px; margin-right: -60px; }
+
+.action-links { margin: 0; }
+
+
+
+/* =Footer
+-------------------------------------------------------------- */
+#colophon .title-partnership { display: block; }
+#colophon a { margin: 10px; }
+#colophon .copyright { display: block; border-right: 0; border-bottom: 1px solid #a2a4a6; margin: 0 0 20px; padding: 0 0 20px; }
+
+/* =Menu
+-------------------------------------------------------------- */
+#access ul li a { font-size: 13px; }
+
+body.home .post-carousel .grid, body.home .custom-recent-posts .grid, body.home .post-entries .grid { max-width: 89.32292%; }
+body.home #page .post-entries { padding-bottom: 0; }
+body.home #page .post-entries .grid .col-12 { width: 100%; }
+body.home #page .post-entries .grid .col-offset-1 { margin-left: 0; }
+body.home #page #carousel-collection ul.carousel-share-bar { margin-bottom: 0; }
+body.home #page #carousel-collection ul.carousel-share-bar > li { display: block; padding-bottom: 8px; }
+body.home #page #carousel-collection ul.carousel-share-bar > li div.social-connect > ul { background: #fff; z-index: 500; text-align: center; }
+body.home #page #carousel-collection ul.carousel-share-bar > li div.social-connect > ul .sharedaddy-sharing-display { float: left; width: auto; }
+body.home #page #carousel-collection ul.carousel-share-bar > li:hover div.social-connect > ul { width: 100%; left: 0; top: 32px; font-size: 10px; }
+body.home .collection-slide h1, body.home .slide-item h1, body.home .chartbuilder-chart h2 { font-size: 24px; }
+
+#carousel-collection.view-all .collection-slide article { margin-bottom: 60px; }
+#carousel-collection article h1, #carousel-collection article h2 { padding-left: 30px; min-height: 45px; }
+#carousel-collection ul.carousel-share-bar > li div.social-connect > ul { width: 320px; }
+
+#carousel-collection-navigator .flex-direction-nav li a.flex-prev { left: -36px; }
+#carousel-collection-navigator .flex-direction-nav li a.flex-next { right: -36px; }
+
+#menu-slides .hamburger ol, #menu-slides .hamburger ul { width: 200px; max-height: 140px; }
+#menu-slides .hamburger ol li a, #menu-slides .hamburger ul li a { font-size: 16px; line-height: normal; }
+
+body.single #main { /* General content padding for mobile view */ padding-top: 0; }
+body.single #main #content > article { padding: 0 20px; }
+body.single #main #primary { width: auto; padding: 20px 0; }
+body.single #main .custom-recent-posts .grid { max-width: auto; }
+body.single #main .entry-header { margin-bottom: 26px; }
+body.single #main .entry-header .author { width: 100%; line-height: normal; }
+
+body.page #main { /* General content padding for mobile view */ padding-top: 0; }
+body.page #main #content > article { padding: 0 20px; }
+body.page #main #primary { width: auto; }
+body.page #main .custom-recent-posts .grid { max-width: auto; }
+
+body.archive #main #primary, body.archive #main #secondary, body.blog #main #primary, body.blog #main #secondary, body.search #main #primary, body.search #main #secondary { max-width: auto; width: 100%; padding-right: 0; float: none; }
+
+.widget.widget_kffpch_archive_filter input[type="submit"] { float: left; line-height: 40px; height: 40px; }
+.widget.widget_kffpch_archive_filter h2 { clear: both; }
+.widget.widget_kffpch_archive_filter .date-field { width: 30%; float: left; margin-right: 20px; }
+.widget.widget_kffpch_archive_filter .sidebar-module { margin-bottom: 40px; }
+.widget.widget_kffpch_archive_filter .sidebar-module:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.widget.widget_kffpch_archive_filter .sidebar-module ul:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.widget.widget_kffpch_archive_filter .sidebar-module ul li { margin-bottom: 14px; margin-right: 30px; float: left; }
+.widget.widget_kffpch_archive_filter .sidebar-module ul li a { display: block; font-size: 16px; line-height: 20px; position: relative; color: #3b3b3b; padding-left: 30px; }
+.widget.widget_kffpch_archive_filter .sidebar-module ul li a span { position: absolute; left: 0; top: 0; display: block; width: 20px; height: 20px; background-color: #d8d8d8; line-height: 30px; }
+.widget.widget_kffpch_archive_filter .sidebar-module ul li a span.selected { background-color: #e28308; }

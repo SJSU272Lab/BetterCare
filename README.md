@@ -10,7 +10,7 @@ ARE RISING IN US
 
 TEAM MEMBERS
 
-(Maitray Shah)[https://www.linkedin.com/in/maitray-shah]<br/>
+[Maitray Shah](https://www.linkedin.com/in/maitray-shah)<br/>
 Salmaan Pehlari<br/>
 Karan Shah<br/>
 Kelly Alvarez<br/>
